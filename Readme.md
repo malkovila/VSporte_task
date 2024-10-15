@@ -25,25 +25,34 @@
  
 4. **Создайте файл .env:**
 DATABASE_USERNAME=your_name
+
 DATABASE_PASSWORD=your_password
+
 DATABASE_HOST=your_host
+
 DATABASE_PORT=your_port
+
 DATABASE_NAME=your_name
 
 SECRET_KEY=your_key
+
 ALGORITHM=HS256
+
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 5. **Проведение миграции:**
       ```bash
     alembic init alembic
 В файле alembic.ini обновите строку подключения к вашей базе данных:
-sqlalchemy.url = driver://DATABASE_USERNAME:DATABASE_PASSWORD@DATABASE_HOST/DATABASE_NAME=postgres
+
+sqlalchemy.url = driver://DATABASE_USERNAME:DATABASE_PASSWORD@DATABASE_HOST/DATABASE_NAME
 
 Создайте первую миграцию:
+
 alembic revision --autogenerate -m "Initial migration"
 
 Примените миграцию:
+
 alembic upgrade head
 
 6. **Сборка и запуск контейнера**
